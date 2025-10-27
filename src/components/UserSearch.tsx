@@ -1,6 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
 import { useState } from "react"
-import { FaGithubAlt } from "react-icons/fa"
 import { fetchGithubUser } from "../api/github"
 import UserCard from "./UserCard"
 
