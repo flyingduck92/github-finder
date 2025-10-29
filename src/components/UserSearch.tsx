@@ -4,7 +4,6 @@ import { fetchGithubUser, searchGithubUser } from "../api/github"
 import UserCard from "./UserCard"
 import RecentSearches from "./RecentSearches"
 import { useDebounce } from "use-debounce"
-import type { GithubUser } from "../types"
 import SuggestionDropDown from "./SuggestionDropdown"
 
 const UserSearch = () => {
