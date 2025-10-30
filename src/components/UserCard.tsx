@@ -6,6 +6,7 @@ import {
   unfollowGithubUser,
 } from "../api/github"
 import { useQuery, useMutation } from "@tanstack/react-query"
+import { toast } from "sonner"
 
 const UserCard = ({ user }: { user: GithubUser }) => {
   // check if follow user
@@ -19,11 +20,11 @@ const UserCard = ({ user }: { user: GithubUser }) => {
   const followMutation = useMutation({
     mutationFn: () => followGithubUser(user.login),
     onSuccess: () => {
-      console.log(`You are now following ${user.login}}`)
+      toast.success(`You are now following ${user.login}`)
       refetch()
     },
     onError: (err) => {
-      console.error(err.message)
+      toast.error(err.message)
     },
   })
 
@@ -31,11 +32,11 @@ const UserCard = ({ user }: { user: GithubUser }) => {
   const unfollowMutation = useMutation({
     mutationFn: () => unfollowGithubUser(user.login),
     onSuccess: () => {
-      console.log(`You are no longer following ${user.login}}`)
+      toast.success(`You are no longer following ${user.login}`)
       refetch()
     },
     onError: (err) => {
-      console.error(err.message)
+      toast.error(err.message)
     },
   })
 
